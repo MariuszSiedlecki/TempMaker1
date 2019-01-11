@@ -12,8 +12,13 @@ public class MainController {
 
     public void startApp(){
         do{
+            getWeather(menuView.getCity());
 
         }while(true);
+
+    }
+
+    private void getWeather(String city) {
 
     }
 
