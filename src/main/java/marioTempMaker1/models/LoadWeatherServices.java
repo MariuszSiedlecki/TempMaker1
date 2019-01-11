@@ -8,7 +8,7 @@ import java.net.URL;
 public class LoadWeatherServices {
 
     public void loadWeatherFor(String cityName){
-        System.out.println(readWebsite("http://api.openweathermap.org/data/2.5/weather?q="
+        System.out.println(readWebsite("https://api.openweathermap.org/data/2.5/weather?q="
                 + cityName
                 + "&appid="+ Config.API_KEY));
     }
