@@ -1,5 +1,7 @@
 package marioTemomaker1.models;
 
+import marioTemomaker1.views.MenuView;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -8,7 +10,9 @@ import java.net.URL;
 public class LoadWeatherServices {
 
     public void loadWeatherFor(String cityName){
-        System.out.println(readWebsite("http://www.phototimekeeper.co.uk"));
+        System.out.println(readWebsite("http://api.openweathermap.org/data/2.5/weather?q="
+                + cityName
+                + "&appid="+ Config.API_KEY));
     }
     private String readWebsite(String url){
         StringBuilder content = new StringBuilder();
