@@ -8,7 +8,7 @@ import java.net.URL;
 public class LoadWeatherServices {
 
     public void loadWeatherFor(String cityName){
-
+        System.out.println(readWebsite("http://www.phototimekeeper.co.uk"));
     }
     private String readWebsite(String url){
         StringBuilder content = new StringBuilder();
