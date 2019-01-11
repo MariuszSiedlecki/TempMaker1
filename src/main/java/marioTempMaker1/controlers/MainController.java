@@ -1,7 +1,7 @@
-package marioTemomaker1.controlers;
+package marioTempMaker1.controlers;
 
-import marioTemomaker1.models.LoadWeatherServices;
-import marioTemomaker1.views.MenuView;
+import marioTempMaker1.models.LoadWeatherServices;
+import marioTempMaker1.views.MenuView;
 
 public class MainController {
     private MenuView menuView;

@@ -1,6 +1,4 @@
-package marioTemomaker1.models;
-
-import marioTemomaker1.views.MenuView;
+package marioTempMaker1.models;
 
 import java.io.IOException;
 import java.io.InputStream;

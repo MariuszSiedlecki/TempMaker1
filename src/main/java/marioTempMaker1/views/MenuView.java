@@ -1,4 +1,4 @@
-package marioTemomaker1.views;
+package marioTempMaker1.views;
 
 import java.util.Scanner;
 

@@ -1,6 +1,6 @@
-package marioTemomaker1;
+package marioTempMaker1;
 
-import marioTemomaker1.controlers.MainController;
+import marioTempMaker1.controlers.MainController;
 
 public class Starter {
     public static void main(String[] args) {
