@@ -1,6 +1,7 @@
 package marioTempMaker1.controlers;
 
 import marioTempMaker1.models.LoadWeatherServices;
+import marioTempMaker1.models.dto.WeatherDto;
 import marioTempMaker1.views.MenuView;
 
 public class MainController {
@@ -18,7 +19,7 @@ public class MainController {
         }while(true);
     }
     private void getWeather(String city) {
-        loadWeatherServices.loadWeatherFor(city);
-
+        WeatherDto weatherDto = loadWeatherServices.loadWeatherFor(city);
+        menuView.printWeather(weatherDto);
     }
 }

@@ -1,4 +1,4 @@
-package marioTempMaker1;
+package marioTempMaker1.views;
 
 import marioTempMaker1.controlers.MainController;
 

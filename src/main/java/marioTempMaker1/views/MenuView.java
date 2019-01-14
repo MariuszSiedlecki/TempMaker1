@@ -1,5 +1,7 @@
 package marioTempMaker1.views;
 
+import marioTempMaker1.models.dto.WeatherDto;
+
 import java.util.Scanner;
 
 public class MenuView {
@@ -15,5 +17,9 @@ public class MenuView {
 
     private void printString(String s) {
         System.out.println(s);
+    }
+    
+    public void printWeather(WeatherDto weatherDto){
+        printString(weatherDto.getTempDto().getTemp()+"");
     }
 }
