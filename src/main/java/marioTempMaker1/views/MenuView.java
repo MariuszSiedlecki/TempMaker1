@@ -20,6 +20,6 @@ public class MenuView {
     }
     
     public void printWeather(WeatherDto weatherDto){
-        printString(weatherDto.getTempDto().getTemp()+"");
+        printString(weatherDto.getTempDto().getTemp()+ " clouds: " + weatherDto.getCloudDto().getCloud());
     }
 }
