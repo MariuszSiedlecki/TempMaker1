@@ -23,6 +23,6 @@ public class MenuView {
         printString(weatherDto.getTempDto().getTemp()-273.15 + " C " + " clouds: " + weatherDto.getCloudDto().getCloud());
     }
     public void printAvg(double avg){
-        printString("średnia temp avg to : " + avg + "C");
+        printString("średnia temp to : " + avg + " C ");
     }
 }

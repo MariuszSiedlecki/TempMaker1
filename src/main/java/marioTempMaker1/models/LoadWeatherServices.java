@@ -23,7 +23,7 @@ public class LoadWeatherServices {
             return weatherDto;
         }
     public double loadAvgForForecast(String cityName){
-        double avgTemp = convertJsonToForecastTempAvarege(readWebsite("https://api.openweathermap.org/data/2.5/forecast?q="
+        double avgTemp = convertJsonToForecastTempAverage(readWebsite("https://api.openweathermap.org/data/2.5/forecast?q="
                 + cityName
                 + "&appid="
                 + Config.API_KEY));
@@ -50,7 +50,7 @@ public class LoadWeatherServices {
         private WeatherDto convertJsonToCurrentWeather(String json){
         return gson.fromJson(json,WeatherDto.class);
         }
-        private double convertJsonToForecastTempAvarege(String json){
+        private double convertJsonToForecastTempAverage(String json){
             ForecastWeatherDto forecastWeatherDto = gson.fromJson(json,ForecastWeatherDto.class);
 
             double sum = 0;
