@@ -20,6 +20,9 @@ public class MenuView {
     }
     
     public void printWeather(WeatherDto weatherDto){
-        printString(weatherDto.getTempDto().getTemp()-273.15 + "C" + " clouds: " + weatherDto.getCloudDto().getCloud());
+        printString(weatherDto.getTempDto().getTemp()-273.15 + " C " + " clouds: " + weatherDto.getCloudDto().getCloud());
+    }
+    public void printAvg(double avg){
+        printString("średnia temp avg to : " + avg + "C");
     }
 }

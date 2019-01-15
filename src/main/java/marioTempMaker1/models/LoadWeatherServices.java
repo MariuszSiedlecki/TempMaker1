@@ -1,6 +1,7 @@
 package marioTempMaker1.models;
 
 import com.google.gson.Gson;
+import marioTempMaker1.models.dto.ForecastWeatherDto;
 import marioTempMaker1.models.dto.WeatherDto;
 
 import java.io.IOException;
@@ -15,12 +16,20 @@ public class LoadWeatherServices {
     }
 
     public WeatherDto loadWeatherFor(String cityName){
-        WeatherDto weatherDto = convertJsonToWeather(readWebsite("https://api.openweathermap.org/data/2.5/weather?q="
+        WeatherDto weatherDto = convertJsonToCurrentWeather(readWebsite("https://api.openweathermap.org/data/2.5/weather?q="
                 + cityName
                 + "&appid="
                 + Config.API_KEY));
-        return weatherDto;
+            return weatherDto;
+        }
+    public double loadAvgForForecast(String cityName){
+        double avgTemp = convertJsonToForecastTempAvarege(readWebsite("https://api.openweathermap.org/data/2.5/forecast?q="
+                + cityName
+                + "&appid="
+                + Config.API_KEY));
+        return avgTemp;
     }
+
     private String readWebsite(String url){
         StringBuilder content = new StringBuilder();
 
@@ -38,7 +47,16 @@ public class LoadWeatherServices {
             }
             return content.toString();
         }
-        private WeatherDto convertJsonToWeather(String json){
+        private WeatherDto convertJsonToCurrentWeather(String json){
         return gson.fromJson(json,WeatherDto.class);
+        }
+        private double convertJsonToForecastTempAvarege(String json){
+            ForecastWeatherDto forecastWeatherDto = gson.fromJson(json,ForecastWeatherDto.class);
+
+            double sum = 0;
+            for (WeatherDto weatherDto:forecastWeatherDto.getForecastWeatherDto()){
+                sum += weatherDto.getTempDto().getTemp();
+            }
+            return sum / forecastWeatherDto.getForecastWeatherDto().size();
         }
     }
