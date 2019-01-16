@@ -23,6 +23,11 @@ public class MenuView {
     
     public void printWeather(Future<WeatherDto> weatherDto){
         while ( !weatherDto.isDone() ) {
+            try {
+                Thread.sleep(800);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             System.out.println("Pobieram pogodę:");
         }
         try {
