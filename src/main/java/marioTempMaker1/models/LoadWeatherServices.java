@@ -8,9 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 public class LoadWeatherServices {
     private Gson gson;
@@ -22,12 +20,17 @@ public class LoadWeatherServices {
         executorService = Executors.newSingleThreadExecutor();
     }
 
-    public WeatherDto loadWeatherFor(String cityName){
-        WeatherDto weatherDto = convertJsonToCurrentWeather(readWebsite("https://api.openweathermap.org/data/2.5/weather?q="
-                + cityName
-                + "&appid="
-                + Config.API_KEY));
-            return weatherDto;
+    public Future<WeatherDto> loadWeatherFor(final String cityName){
+        Callable<WeatherDto>callable = new Callable<WeatherDto>() {
+            @Override
+            public WeatherDto call() throws Exception {
+                return convertJsonToCurrentWeather(readWebsite("https://api.openweathermap.org/data/2.5/weather?q="
+                        + cityName
+                        + "&appid="
+                        + Config.API_KEY));
+            }
+        };
+            return executorService.submit(callable);
         }
     public double loadAvgForForecast(String cityName){
         double avgTemp = convertJsonToForecastTempAverage(readWebsite("https://api.openweathermap.org/data/2.5/forecast?q="

@@ -4,6 +4,8 @@ import marioTempMaker1.models.LoadWeatherServices;
 import marioTempMaker1.models.dto.WeatherDto;
 import marioTempMaker1.views.MenuView;
 
+import java.util.concurrent.Future;
+
 public class MainController {
     private MenuView menuView;
     private LoadWeatherServices loadWeatherServices;
@@ -19,9 +21,9 @@ public class MainController {
         }while(true);
     }
     private void getWeather(String city) {
-        WeatherDto weatherDto = loadWeatherServices.loadWeatherFor(city);
+        Future<WeatherDto> weatherDto = loadWeatherServices.loadWeatherFor(city);
         double avg = loadWeatherServices.loadAvgForForecast(city);
-        menuView.printWeather(weatherDto);
-        menuView.printAvg((avg)-273.15);
+           menuView.printWeather(weatherDto);
+           menuView.printAvg((avg)-273.15);
     }
 }
