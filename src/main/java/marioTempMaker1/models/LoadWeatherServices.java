@@ -8,11 +8,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class LoadWeatherServices {
     private Gson gson;
-    public LoadWeatherServices(){
+    private ExecutorService executorService;
+
+    public LoadWeatherServices()
+    {
         gson = new Gson();
+        executorService = Executors.newSingleThreadExecutor();
     }
 
     public WeatherDto loadWeatherFor(String cityName){
