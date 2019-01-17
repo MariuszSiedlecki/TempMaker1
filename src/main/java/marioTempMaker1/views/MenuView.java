@@ -28,7 +28,7 @@ public class MenuView {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("Pobieram pogodę:");
+            System.out.println("Pobieram pogodę...");
         }
         try {
             System.out.println((weatherDto.get().getTempDto().getTemp())-273.15 + " C ");
@@ -40,6 +40,6 @@ public class MenuView {
 
     }
     public void printAvg(double avg){
-        printString("średnia temp to : " + (avg-273.15) + " C ");
+        printString("Średnia temperatura to : " + (avg-273.15) + " C ");
     }
 }
