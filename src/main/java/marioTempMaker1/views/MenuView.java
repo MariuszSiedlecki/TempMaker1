@@ -40,6 +40,6 @@ public class MenuView {
 
     }
     public void printAvg(double avg){
-        printString("średnia temp to : " + avg + " C ");
+        printString("średnia temp to : " + (avg-273.15) + " C ");
     }
 }

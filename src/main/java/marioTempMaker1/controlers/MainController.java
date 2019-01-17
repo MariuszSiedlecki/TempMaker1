@@ -24,6 +24,6 @@ public class MainController {
         Future<WeatherDto> weatherDto = loadWeatherServices.loadWeatherFor(city);
         double avg = loadWeatherServices.loadAvgForForecast(city);
            menuView.printWeather(weatherDto);
-           menuView.printAvg((avg)-273.15);
+           menuView.printAvg(avg);
     }
 }
